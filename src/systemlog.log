@@ -1,0 +1,3 @@
+WARNING:root:delete_blog_post: Post not found
+WARNING:root:get_blog_post: Post not found
+WARNING:root:get_blog_posts: No posts found
