@@ -1,0 +1,32 @@
+
+services:
+  server:
+    hostname: 
+      blog
+    build:
+      context: .
+    volumes:
+    - ./systemlog.log:/app/systemlog.log
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:latest
+    hostname: nginx
+    container_name: nginx
+    platform: linux/amd64
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - server
+    networks:
+      - backend
+
+
+networks:
+  backend:
+
+
